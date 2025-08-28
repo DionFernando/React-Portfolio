@@ -43,7 +43,7 @@ const TemporaryPage: FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 0.8 }}
             >
-                © {new Date().getFullYear()} Dionz. All Rights Reserved.
+                © {new Date().getFullYear()} Dion Fernando. All Rights Reserved.
             </motion.p>
         </div>
     );
