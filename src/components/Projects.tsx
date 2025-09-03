@@ -100,11 +100,7 @@ function ProjectCard({ title, description, image, github }: Project) {
     );
 }
 
-type ProjectsProps = {
-    onViewAll: () => void; // 🔑 Callback to show ProjectsAll full page
-};
-
-export default function Projects({ onViewAll }: ProjectsProps) {
+export default function Projects() {
     return (
         <section
             id="projects"
@@ -139,13 +135,14 @@ export default function Projects({ onViewAll }: ProjectsProps) {
 
                 {/* View all */}
                 <div className="mt-8 flex justify-center">
-                    <button
-                        type="button"
-                        onClick={onViewAll}
+                    <a
+                        href="/projects"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm text-white hover:bg-white/15"
                     >
                         View all projects →
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
