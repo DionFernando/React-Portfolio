@@ -16,6 +16,7 @@ import portrait from "../assets/Dion2.png";
 import skillCajon from "../assets/more/skill-cajon.jpg";
 import skillPiano from "../assets/more/skill-piano.jpg";
 import skillPresenting from "../assets/more/skill-presenting.jpg";
+import skillphoto from "../assets/more/skill-photo.jpg";
 
 // Designing viewer images (3+ works best)
 import design1 from "../assets/more/design-1.jpg";
@@ -60,6 +61,12 @@ const skills = [
         img: skillCajon,
         body:
             "I’ve performed cajón at 10+ professional events. I love blending Latin grooves with modern arrangements and locking in with bands to lift the room’s energy.",
+    },
+    {
+        title: "Photo & Videography",
+        img: skillphoto,
+        body:
+            "I done over 15+ professional shoots. Edit photos and videos for personal projects and friends.",
     },
     {
         title: "Piano Player",
