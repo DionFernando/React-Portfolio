@@ -1,13 +1,14 @@
-// src/components/Projects.tsx
-import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, X } from "lucide-react";
 
 import carnage from "../assets/projects/carnage.png";
 import booking from "../assets/projects/booking.png";
 import sneakerz from "../assets/projects/sneakerz.png";
 import bookclub from "../assets/projects/BookClub.png";
 
-import AllProjects from "../pages/ProjectsAll";
+// We’ll reuse your ProjectsAll page contents inside a modal
+import ProjectsAll from "../pages/ProjectsAll";
 
 export type Project = {
     title: string;
@@ -16,7 +17,6 @@ export type Project = {
     github: string;
 };
 
-// Export so the /projects page can reuse it
 // eslint-disable-next-line react-refresh/only-export-components
 export const PROJECTS: Project[] = [
     {
@@ -27,14 +27,14 @@ export const PROJECTS: Project[] = [
     },
     {
         title: "Booking.com",
-        description: "A hotel and car booking platform with search, filters, and booking features.",
+        description:
+            "A hotel and car booking platform with search, filters, and booking features.",
         image: booking,
         github: "https://github.com/DionFernando/Booking.com.git",
     },
     {
         title: "Sneakerz E-commerce",
-        description:
-            "E-commerce site with product pages, cart, and checkout flow.",
+        description: "E-commerce site with product pages, cart, and checkout flow.",
         image: sneakerz,
         github: "https://github.com/DionFernando/SneakerZ-EcommerceWebsite.git",
     },
@@ -83,9 +83,7 @@ function ProjectCard({ title, description, image, github }: Project) {
 
             {/* content */}
             <div className="relative z-[1] p-4 sm:p-5">
-                <h3 className="text-base sm:text-lg font-semibold text-white">
-                    {title}
-                </h3>
+                <h3 className="text-base sm:text-lg font-semibold text-white">{title}</h3>
                 <p className="mt-2 text-xs sm:text-sm leading-relaxed text-gray-300">
                     {description}
                 </p>
@@ -107,6 +105,15 @@ function ProjectCard({ title, description, image, github }: Project) {
 }
 
 export default function Projects() {
+    const [openAll, setOpenAll] = useState(false);
+
+    // Close modal on ESC
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenAll(false);
+        if (openAll) window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, [openAll]);
+
     return (
         <section
             id="projects"
@@ -126,7 +133,7 @@ export default function Projects() {
                     </p>
                 </div>
 
-                {/* ✅ 2-column grid on mobile, 1 column on very small screens, 4 on lg */}
+                {/* 2 cols on mobile, 4 on lg, 1 on very narrow */}
                 <motion.ul
                     variants={container}
                     initial="hidden"
@@ -141,14 +148,53 @@ export default function Projects() {
 
                 {/* View all */}
                 <div className="mt-8 flex justify-center">
-                    <a
-                        href={AllProjects}
+                    <button
+                        type="button"
+                        onClick={() => setOpenAll(true)}
                         className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm text-white hover:bg-white/15"
                     >
                         View all projects →
-                    </a>
+                    </button>
                 </div>
             </div>
+
+            {/* Fullscreen modal with all projects (no router needed) */}
+            <AnimatePresence>
+                {openAll && (
+                    <motion.div
+                        className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setOpenAll(false)}
+                    >
+                        <motion.div
+                            initial={{ y: 24, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: 24, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="absolute left-1/2 top-1/2 w-[95%] max-w-7xl -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-black to-gray-900 shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-white/10 bg-black/60 px-4 py-3">
+                                <h3 className="text-lg font-semibold">All Projects</h3>
+                                <button
+                                    onClick={() => setOpenAll(false)}
+                                    className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-1.5 text-sm hover:bg-white/15"
+                                >
+                                    <X className="h-4 w-4" />
+                                    Close
+                                </button>
+                            </div>
+
+                            {/* Scrollable content */}
+                            <div className="max-h-[75vh] overflow-y-auto">
+                                <ProjectsAll />
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
