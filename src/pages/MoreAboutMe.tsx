@@ -50,6 +50,12 @@ import g16 from "../assets/more/gal-16.jpg";
 
 const skills = [
     {
+        title: "Presenting",
+        img: skillPresenting,
+        body:
+            "I’ve delivered 5+ professional presentations—tech demos, pitches, and showcases—focusing on clarity, structure, and confident storytelling.",
+    },
+    {
         title: "Cajón Player",
         img: skillCajon,
         body:
@@ -61,12 +67,7 @@ const skills = [
         body:
             "Mostly self-taught—with a big assist from YouTube—I play contemporary pieces and chord progressions for songwriting and relaxed jamming.",
     },
-    {
-        title: "Presenting",
-        img: skillPresenting,
-        body:
-            "I’ve delivered 5+ professional presentations—tech demos, pitches, and showcases—focusing on clarity, structure, and confident storytelling.",
-    },
+
 ];
 
 const designingImages = [design1, design4, design5];
