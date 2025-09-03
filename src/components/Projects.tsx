@@ -1,6 +1,6 @@
-// src/components/Projects.tsx
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import carnage from "../assets/projects/carnage.png";
 import booking from "../assets/projects/booking.png";
@@ -43,13 +43,9 @@ export const PROJECTS: Project[] = [
     },
 ];
 
-// animations
 const container = {
     hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: { staggerChildren: 0.08, delayChildren: 0.05 },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 const item = {
     hidden: { opacity: 0, y: 14 },
@@ -63,27 +59,14 @@ function ProjectCard({ title, description, image, github }: Project) {
             whileHover={{ y: -4 }}
             className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-lg backdrop-blur-md"
         >
-            {/* soft glow */}
             <div className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-blue-500/10 blur-3xl" />
-
-            {/* image */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full">
-                <img
-                    src={image}
-                    alt={title}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
-                />
+                <img src={image} alt={title} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </div>
-
-            {/* content */}
             <div className="relative z-[1] p-4 sm:p-5">
                 <h3 className="text-base sm:text-lg font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-gray-300">
-                    {description}
-                </p>
-
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-gray-300">{description}</p>
                 <div className="mt-4">
                     <a
                         href={github}
@@ -110,14 +93,15 @@ export default function Projects() {
             <div className="pointer-events-none absolute -right-24 bottom-10 h-56 w-56 rounded-full bg-blue-400/10 blur-3xl" />
 
             <div className="mx-auto w-[95%] max-w-7xl">
-                {/* header */}
                 <div className="mb-8 md:mb-10">
                     <h2 className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl md:text-5xl">
                         Projects
                     </h2>
+                    <p className="mt-2 max-w-2xl text-xs text-gray-400 sm:text-sm md:text-base">
+                        Selected builds I’m proud of. Explore the full list for more.
+                    </p>
                 </div>
 
-                {/* ✅ grid */}
                 <motion.ul
                     variants={container}
                     initial="hidden"
@@ -130,16 +114,16 @@ export default function Projects() {
                     ))}
                 </motion.ul>
 
-                {/* View all projects → (open in new tab) */}
+                {/* OPEN IN NEW TAB — Link renders href="#/projects" under HashRouter */}
                 <div className="mt-8 flex justify-center">
-                    <a
-                        href="/projects"       // with HashRouter this becomes "/#/projects" when clicked
+                    <Link
+                        to="/projects"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm text-white hover:bg-white/15"
                     >
                         View all projects →
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
