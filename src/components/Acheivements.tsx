@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import innovesta from "../assets/achievements/innovesta.png";
-//import innovesta2 from "../assets/achievements/innovesta2.png";
 import semester from "../assets/achievements/semester.png";
-//import semester2 from "../assets/achievements/semester2.png";
 import ditec from "../assets/achievements/DITEC.png";
-//import ditec2 from "../assets/achievements/DITEC2.png";
 import hnd from "../assets/achievements/HND.png";
-//import hnd2 from "../assets/achievements/HND2.png";
-
 
 type Achievement = {
     imgs: string[];
@@ -20,35 +14,22 @@ type Achievement = {
 
 const ACHIEVEMENTS: Achievement[] = [
     {
-        imgs: [
-            innovesta
-            //innovesta2
-        ],
+        imgs: [innovesta],
         alt: "Receiving award",
         caption: "Innovesta 2024",
     },
     {
-        imgs: [
-            semester
-            //semester2
-        ],
+        imgs: [semester],
         alt: "Team on stage",
         caption: "2nd Place - Semester Project",
     },
     {
-        imgs: [
-            ditec
-            //ditec2
-        ],
+        imgs: [ditec],
         alt: "Graduation certificate",
         caption: "DITEC Graduation",
     },
-
     {
-        imgs: [
-            hnd
-           // hnd2
-        ],
+        imgs: [hnd],
         alt: "Graduation certificate",
         caption: "HND Graduation",
     },
@@ -57,7 +38,10 @@ const ACHIEVEMENTS: Achievement[] = [
 // animations
 const container = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+    show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    },
 };
 
 const item = {
@@ -66,29 +50,20 @@ const item = {
 };
 
 function Card({ imgs, alt, caption, tag }: Achievement) {
-    const [index, setIndex] = useState(0);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setIndex((i) => (i + 1) % imgs.length);
-        }, 3000);
-        return () => clearInterval(timer);
-    }, [imgs.length]);
-
     return (
         <motion.li variants={item} whileHover={{ y: -2 }} className="group">
             <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-lg backdrop-blur-md">
                 <div className="pointer-events-none absolute -inset-16 rounded-[3rem] bg-blue-500/10 blur-3xl" />
                 <img
-                    src={imgs[index]}
+                    src={imgs[0]} // ✅ always first image only
                     alt={alt}
                     loading="lazy"
                     className="relative z-[1] h-full w-full rounded-2xl object-cover object-center aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] transition-all duration-500"
                 />
                 {tag && (
                     <span className="absolute right-2 top-2 z-[2] rounded-md border border-white/20 bg-black/40 px-2 py-0.5 text-[10px] font-medium text-gray-200 backdrop-blur group-hover:bg-black/50">
-                        {tag}
-                    </span>
+            {tag}
+          </span>
                 )}
                 <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </div>
