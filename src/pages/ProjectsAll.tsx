@@ -43,6 +43,13 @@ export default function ProjectsAll() {
     return (
         <main className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-x-clip">
             <div className="mx-auto w-[95%] max-w-7xl py-16">
+
+                <div className="mt-10">
+                    <Link to="/" className="text-sm text-gray-400 hover:text-white">
+                        ← Back to Home
+                    </Link>
+                </div>
+
                 <h1 className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
                     All Projects
                 </h1>

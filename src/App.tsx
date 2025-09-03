@@ -1,3 +1,4 @@
+// src/App.tsx
 import { useState, useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -10,6 +11,7 @@ import Achievements from "./components/Acheivements";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import ProjectsAll from "./pages/ProjectsAll";
+import MoreAboutMe from "./pages/MoreAboutMe";
 import YouTube from "./components/YouTube";
 import HireMe from "./components/HireMe.tsx";
 import Footer from "./components/Footer";
@@ -44,6 +46,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/projects" element={<ProjectsAll />} />
+                <Route path="/more-about-me" element={<MoreAboutMe />} /> {/* ✅ new */}
             </Routes>
         </Router>
     );

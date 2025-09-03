@@ -1,60 +1,47 @@
-// src/components/MoreAboutMe.tsx
+// src/pages/MoreAboutMe.tsx
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-export default function MoreAboutMe({ onClose }: { onClose: () => void }) {
+export default function MoreAboutMe() {
     return (
-        <motion.section
-            id="more-about-me"
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-        >
-            <div className="relative max-w-3xl w-full rounded-2xl border border-white/15 bg-gradient-to-b from-gray-900 to-black p-6 sm:p-10 shadow-xl text-white overflow-y-auto max-h-[90vh]">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+        <main className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white">
+            <div className="mx-auto w-[95%] max-w-4xl py-12 sm:py-16">
+                <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                     More About Me
-                </h2>
-                <p className="mt-4 text-gray-300 text-sm sm:text-base leading-relaxed">
-                    Hi 👋, I’m Dion Fernando. Beyond just my portfolio highlights, here’s a
-                    little more about me...
+                </h1>
+                <p className="mt-3 text-gray-300 text-sm sm:text-base leading-relaxed">
+                    Hi 👋, I’m Dion Fernando. Beyond just my portfolio highlights, here’s a little more about me...
                 </p>
 
-                <div className="mt-6 space-y-6">
-                    <section>
-                        <h3 className="text-lg font-semibold text-blue-400">Journey</h3>
-                        <p className="text-gray-400 text-sm sm:text-base">
-                            I started coding at [your story here], and since then I’ve worked
-                            on projects from web apps to mobile apps...
+                <div className="mt-8 space-y-8">
+                    <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+                        <h2 className="text-lg sm:text-xl font-semibold text-blue-400">Journey</h2>
+                        <p className="text-gray-300 text-sm sm:text-base">
+                            I started coding at [your story here], and since then I’ve worked on projects from web apps to mobile apps...
                         </p>
-                    </section>
+                    </motion.section>
 
-                    <section>
-                        <h3 className="text-lg font-semibold text-blue-400">Passions</h3>
-                        <p className="text-gray-400 text-sm sm:text-base">
-                            Outside of development, I love YouTube content creation,
-                            photography, and design...
+                    <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}>
+                        <h2 className="text-lg sm:text-xl font-semibold text-blue-400">Passions</h2>
+                        <p className="text-gray-300 text-sm sm:text-base">
+                            Outside of development, I love YouTube content creation, photography, and design...
                         </p>
-                    </section>
+                    </motion.section>
 
-                    <section>
-                        <h3 className="text-lg font-semibold text-blue-400">Future Goals</h3>
-                        <p className="text-gray-400 text-sm sm:text-base">
-                            My vision is to become a full-stack architect building products
-                            that make a real difference...
+                    <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.1 }}>
+                        <h2 className="text-lg sm:text-xl font-semibold text-blue-400">Future Goals</h2>
+                        <p className="text-gray-300 text-sm sm:text-base">
+                            My vision is to become a full-stack architect building products that make a real difference...
                         </p>
-                    </section>
+                    </motion.section>
                 </div>
 
-                {/* Close Button */}
-                <div className="mt-8 flex justify-end">
-                    <button
-                        onClick={onClose}
-                        className="rounded-xl bg-blue-500 px-5 py-2 font-semibold text-white hover:bg-blue-600 shadow-md"
-                    >
-                        Close
-                    </button>
+                <div className="mt-10">
+                    <Link to="/" className="text-sm text-gray-400 hover:text-white">
+                        ← Back to Home
+                    </Link>
                 </div>
             </div>
-        </motion.section>
+        </main>
     );
 }

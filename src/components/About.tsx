@@ -2,16 +2,14 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import ProfileImg from "../assets/Dion2.png";
 import { Eye, Target } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const About = () => {
-    const navigate = useNavigate();
-
-    // optional: close on ESC (can be removed if not needed)
+    // optional: close on ESC (no modal right now, safe to keep/remove)
     useEffect(() => {
         function onKey(e: KeyboardEvent) {
             if (e.key === "Escape") {
-                // No modal to close
+                // nothing to close
             }
         }
         window.addEventListener("keydown", onKey);
@@ -23,7 +21,7 @@ const About = () => {
             id="about"
             className="relative flex items-center overflow-hidden bg-gradient-to-b from-black to-gray-900 text-white"
         >
-            {/* Background circles (exactly two) */}
+            {/* Background circles */}
             <div
                 aria-hidden
                 className="pointer-events-none select-none absolute -top-40 -left-40 w-[70vw] max-w-[580px] aspect-square rounded-full bg-blue-400/10 ring-1 ring-blue-400/25 blur-3xl"
@@ -51,7 +49,6 @@ const About = () => {
                         className="md:col-span-5 flex justify-center"
                     >
                         <div className="relative">
-                            {/* subtle offset frame */}
                             <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl border-4 border-blue-400/20 -z-10" />
                             <img
                                 src={ProfileImg}
@@ -71,31 +68,18 @@ const About = () => {
                     >
                         {/* Info Card */}
                         <div className="rounded-2xl border border-blue-400/50 bg-white/5 backdrop-blur-sm p-4 sm:p-6 md:p-8 shadow-lg">
-                            {/* mobile 2x3 grid */}
                             <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-[9px] sm:text-sm md:text-base">
-                                <p>
-                                    <span className="font-semibold text-blue-300">Name :</span> W K D Fernando
-                                </p>
-                                <p>
-                                    <span className="font-semibold text-blue-300">Age :</span> 22
-                                </p>
-                                <p>
-                                    <span className="font-semibold text-blue-300">Nationality :</span> Sri Lankan
-                                </p>
-                                <p>
-                                    <span className="font-semibold text-blue-300">Occupation :</span> Full-Stack Developer
-                                </p>
-                                <p>
-                                    <span className="font-semibold text-blue-300">Tel :</span> +94 76 714 9543
-                                </p>
-                                <p>
-                                    <span className="font-semibold text-blue-300">Email :</span> dionfernando2003@gmail.com
-                                </p>
+                                <p><span className="font-semibold text-blue-300">Name :</span> W K D Fernando</p>
+                                <p><span className="font-semibold text-blue-300">Age :</span> 22</p>
+                                <p><span className="font-semibold text-blue-300">Nationality :</span> Sri Lankan</p>
+                                <p><span className="font-semibold text-blue-300">Occupation :</span> Full-Stack Developer</p>
+                                <p><span className="font-semibold text-blue-300">Tel :</span> +94 76 714 9543</p>
+                                <p><span className="font-semibold text-blue-300">Email :</span> dionfernando2003@gmail.com</p>
                             </div>
                         </div>
 
                         {/* Description */}
-                        <p className="mt-6 text-gray-400 text-xs text-[10px] md:text-base leading-relaxed text-center md:text-center">
+                        <p className="mt-6 text-gray-400 text-[10px] sm:text-xs md:text-base leading-relaxed text-center">
                             I design and develop software aligned with rapidly evolving technologies, delivering
                             high-quality solutions for clients. I’m passionate about problem-solving, blending
                             design and engineering to craft seamless user experiences.
@@ -123,13 +107,18 @@ const About = () => {
                             </div>
                         </div>
 
+                        {/* Responsive button — smaller text on mobile; opens new tab to #/more-about-me */}
                         <div className="flex justify-center mt-4">
-                            <button
-                                onClick={() => navigate("/more-about-me")}
-                                className="px-6 py-2 bg-blue-500 hover:bg-blue-600 transition rounded-lg text-white font-semibold shadow-md"
+                            <Link
+                                to="/more-about-me"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-4 sm:px-5 md:px-6 py-2 rounded-lg text-white font-semibold shadow-md bg-blue-500 hover:bg-blue-600 transition
+                           text-xs sm:text-sm md:text-base"
+                                aria-label="Open more about me in a new tab"
                             >
                                 Get to know more about me
-                            </button>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
