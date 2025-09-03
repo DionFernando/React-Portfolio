@@ -133,7 +133,7 @@ export default function Projects() {
                     ))}
                 </motion.ul>
 
-                {/* View all */}
+                {/* View all projects → (open in new tab) */}
                 <div className="mt-8 flex justify-center">
                     <a
                         href="/projects"
