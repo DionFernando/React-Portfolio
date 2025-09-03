@@ -34,7 +34,10 @@ function Counter({
     short?: string; // short label for mobile
 }) {
     const ref = useRef<HTMLDivElement>(null);
-    const inView = useInView(ref, { once: true, margin: "-100px" });
+
+    // ⬇️ FIX: only shrink top/bottom, leave left/right 0px; require ~20% visibility
+    const inView = useInView(ref, { once: true, margin: "-80px 0px", amount: 0.2 });
+
     const mv = useMotionValue(0);
     const [val, setVal] = useState("0");
 
@@ -200,7 +203,7 @@ export default function HireMe() {
                     viewport={{ once: true, amount: 0.2 }}
                     className="relative mt-8 rounded-3xl border border-blue-400/40 bg-blue-500/10 p-3 sm:p-4 shadow-[0_0_40px_-12px_rgba(59,130,246,0.5)]"
                 >
-                    {/* ✅ All in one line on mobile */}
+                    {/* All in one line on mobile */}
                     <div className="grid grid-cols-5 gap-2 sm:gap-3 md:gap-4">
                         <Counter to={4} label="Yrs of Experience" short="Yrs" />
                         <Counter to={20} label="Projects" short="Projects" />

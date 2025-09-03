@@ -20,8 +20,11 @@ import skillPresenting from "../assets/more/skill-presenting.jpg";
 
 // Designing viewer images (3+ works best)
 import design1 from "../assets/more/design-1.jpg";
-import design2 from "../assets/more/design-2.jpg";
-import design3 from "../assets/more/design-3.jpg";
+//import design2 from "../assets/more/design-2.jpg";
+//import design3 from "../assets/more/design-3.jpg";
+import design4 from "../assets/more/design-4.png";
+import design5 from "../assets/more/design-5.png";
+//import design6 from "../assets/more/design-6.png";
 
 // Dionz section image
 import dionzHero from "../assets/more/dionz.jpg";
@@ -67,7 +70,7 @@ const skills = [
     },
 ];
 
-const designingImages = [design1, design2, design3];
+const designingImages = [design1, design4, design5];
 
 const galleryImages = [g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16];
 
@@ -288,7 +291,7 @@ export default function MoreAboutMe() {
                                     project and now doubles as a side income—focused on tasteful curation and honest service.
                                 </p>
                                 <a
-                                    href="https://dionz.vercel.app/" /* TODO: replace with your real website */
+                                    href="https://dionz.vercel.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="mt-4 inline-flex items-center gap-2 rounded-xl border border-blue-400/40 bg-blue-500/10 px-4 py-2 text-sm text-blue-200 hover:bg-blue-500/20"
