@@ -120,7 +120,7 @@ export default function Projects() {
                     </p>
                 </div>
 
-                {/* ✅ 2-column grid on mobile, 4 on lg, 1 on very narrow */}
+                {/* ✅ grid */}
                 <motion.ul
                     variants={container}
                     initial="hidden"
