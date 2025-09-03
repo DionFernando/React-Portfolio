@@ -3,6 +3,10 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useInView, useMotionValue, animate } from "framer-motion";
 import { Youtube } from "lucide-react";
 
+import drox from "../assets/youtube/DRox.png";
+import droxgaming from "../assets/youtube/DRoxGaming.png";
+import roxie from "../assets/youtube/Roxie.png";
+
 type Channel = {
     name: string;
     avatar: string;
@@ -21,7 +25,7 @@ const CHANNELS: Channel[] = [
     // },
     {
         name: "D ROX",
-        avatar: "src/assets/youtube/DRox.png",
+        avatar: drox,
         channelUrl: "https://youtu.be/E8iBF8DYJXo?si=Y_HK5p63fgKumLzk",
         featuredVideoId: "E8iBF8DYJXo",
         blurb:
@@ -29,7 +33,7 @@ const CHANNELS: Channel[] = [
     },
     {
         name: "D ROX Gaming",
-        avatar: "src/assets/youtube/DRoxGaming.png",
+        avatar: droxgaming,
         channelUrl:
             "https://www.youtube.com/live/Z4NK_jGUQdw?si=g4ONLiIDfdfT-cwQ",
         featuredVideoId: "Z4NK_jGUQdw",
@@ -37,7 +41,7 @@ const CHANNELS: Channel[] = [
     },
     {
         name: "Roxie",
-        avatar: "src/assets/youtube/Roxie.png",
+        avatar: roxie,
         channelUrl:
             "https://youtube.com/shorts/BdhgWzYlmzI?si=vs1DxY1z8iPVMCtZ",
         featuredVideoId: "BdhgWzYlmzI",

@@ -7,6 +7,8 @@ import booking from "../assets/projects/booking.png";
 import sneakerz from "../assets/projects/sneakerz.png";
 import bookclub from "../assets/projects/BookClub.png";
 
+import AllProjects from "../pages/ProjectsAll";
+
 export type Project = {
     title: string;
     description: string;
@@ -140,7 +142,7 @@ export default function Projects() {
                 {/* View all */}
                 <div className="mt-8 flex justify-center">
                     <a
-                        href="/projects"
+                        href={AllProjects}
                         className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm text-white hover:bg-white/15"
                     >
                         View all projects →
