@@ -1,10 +1,11 @@
+/*
 import type {FC} from "react";
 import { motion } from "framer-motion";
 
 const TemporaryPage: FC = () => {
     return (
         <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-4">
-            {/* Title */}
+            {/!* Title *!/}
             <motion.h1
                 className="text-4xl md:text-6xl font-extrabold text-center mb-6"
                 initial={{ opacity: 0, y: -40 }}
@@ -14,7 +15,7 @@ const TemporaryPage: FC = () => {
                 🚧 Portfolio Under Update 🚧
             </motion.h1>
 
-            {/* Subtext */}
+            {/!* Subtext *!/}
             <motion.p
                 className="text-lg md:text-xl text-gray-300 mb-10 text-center max-w-xl"
                 initial={{ opacity: 0 }}
@@ -25,7 +26,7 @@ const TemporaryPage: FC = () => {
                 Meanwhile, you can check out the previous version below.
             </motion.p>
 
-            {/* Button */}
+            {/!* Button *!/}
             <motion.a
                 href="https://my-portfolio-beta-lime-91.vercel.app/"
                 className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-2xl text-lg font-medium shadow-lg transition transform hover:scale-105"
@@ -36,7 +37,7 @@ const TemporaryPage: FC = () => {
                 View Previous Portfolio
             </motion.a>
 
-            {/* Footer */}
+            {/!* Footer *!/}
             <motion.p
                 className="mt-16 text-sm text-gray-500"
                 initial={{ opacity: 0 }}
@@ -50,3 +51,4 @@ const TemporaryPage: FC = () => {
 };
 
 export default TemporaryPage;
+*/
