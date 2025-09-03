@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import innovesta from "../assets/achievements/innovesta.png";
-import innovesta2 from "../assets/achievements/innovesta2.png";
+//import innovesta2 from "../assets/achievements/innovesta2.png";
 import semester from "../assets/achievements/semester.png";
-import semester2 from "../assets/achievements/semester2.png";
+//import semester2 from "../assets/achievements/semester2.png";
 import ditec from "../assets/achievements/DITEC.png";
-import ditec2 from "../assets/achievements/DITEC2.png";
+//import ditec2 from "../assets/achievements/DITEC2.png";
 import hnd from "../assets/achievements/HND.png";
-import hnd2 from "../assets/achievements/HND2.png";
+//import hnd2 from "../assets/achievements/HND2.png";
 
 
 type Achievement = {
@@ -21,24 +21,24 @@ type Achievement = {
 const ACHIEVEMENTS: Achievement[] = [
     {
         imgs: [
-            innovesta,
-            innovesta2
+            innovesta
+            //innovesta2
         ],
         alt: "Receiving award",
         caption: "Innovesta 2024",
     },
     {
         imgs: [
-            semester,
-            semester2
+            semester
+            //semester2
         ],
         alt: "Team on stage",
         caption: "2nd Place - Semester Project",
     },
     {
         imgs: [
-            ditec,
-            ditec2
+            ditec
+            //ditec2
         ],
         alt: "Graduation certificate",
         caption: "DITEC Graduation",
@@ -46,8 +46,8 @@ const ACHIEVEMENTS: Achievement[] = [
 
     {
         imgs: [
-            hnd,
-            hnd2
+            hnd
+           // hnd2
         ],
         alt: "Graduation certificate",
         caption: "HND Graduation",
