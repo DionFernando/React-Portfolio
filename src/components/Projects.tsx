@@ -1,11 +1,55 @@
 // src/components/Projects.tsx
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
-import { PROJECTS, type Project } from "../data/projects";  // ✅ imported from separate file
 
+import carnage from "../assets/projects/carnage.png";
+import booking from "../assets/projects/booking.png";
+import sneakerz from "../assets/projects/sneakerz.png";
+import bookclub from "../assets/projects/BookClub.png";
+
+export type Project = {
+    title: string;
+    description: string;
+    image: string;
+    github: string;
+};
+
+export const PROJECTS: Project[] = [
+    {
+        title: "Carnage Management System",
+        description: "Full-stack app with auth, CRUD, and real-time updates.",
+        image: carnage,
+        github: "https://github.com/DionFernando/CarnageManagement.git",
+    },
+    {
+        title: "Booking.com",
+        description:
+            "A hotel and car booking platform with search, filters, and booking features.",
+        image: booking,
+        github: "https://github.com/DionFernando/Booking.com.git",
+    },
+    {
+        title: "Sneakerz E-commerce",
+        description: "E-commerce site with product pages, cart, and checkout flow.",
+        image: sneakerz,
+        github: "https://github.com/DionFernando/SneakerZ-EcommerceWebsite.git",
+    },
+    {
+        title: "BookClub Library Management System",
+        description:
+            "A library management system with user auth, book catalog, and borrowing features.",
+        image: bookclub,
+        github: "https://github.com/DionFernando/BookClub-frontend.git",
+    },
+];
+
+// animations
 const container = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+    show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    },
 };
 const item = {
     hidden: { opacity: 0, y: 14 },
@@ -19,16 +63,26 @@ function ProjectCard({ title, description, image, github }: Project) {
             whileHover={{ y: -4 }}
             className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-lg backdrop-blur-md"
         >
+            {/* soft glow */}
             <div className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-blue-500/10 blur-3xl" />
 
+            {/* image */}
             <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full">
-                <img src={image} alt={title} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                <img
+                    src={image}
+                    alt={title}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </div>
 
+            {/* content */}
             <div className="relative z-[1] p-4 sm:p-5">
                 <h3 className="text-base sm:text-lg font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-gray-300">{description}</p>
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-gray-300">
+                    {description}
+                </p>
 
                 <div className="mt-4">
                     <a
@@ -47,7 +101,7 @@ function ProjectCard({ title, description, image, github }: Project) {
 }
 
 type ProjectsProps = {
-    onViewAll: () => void;
+    onViewAll: () => void; // 🔑 Callback to show ProjectsAll full page
 };
 
 export default function Projects({ onViewAll }: ProjectsProps) {
@@ -60,6 +114,7 @@ export default function Projects({ onViewAll }: ProjectsProps) {
             <div className="pointer-events-none absolute -right-24 bottom-10 h-56 w-56 rounded-full bg-blue-400/10 blur-3xl" />
 
             <div className="mx-auto w-[95%] max-w-7xl">
+                {/* header */}
                 <div className="mb-8 md:mb-10">
                     <h2 className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl md:text-5xl">
                         Projects
@@ -69,6 +124,7 @@ export default function Projects({ onViewAll }: ProjectsProps) {
                     </p>
                 </div>
 
+                {/* ✅ 2-column grid on mobile, 4 on lg, 1 on very narrow */}
                 <motion.ul
                     variants={container}
                     initial="hidden"
@@ -81,6 +137,7 @@ export default function Projects({ onViewAll }: ProjectsProps) {
                     ))}
                 </motion.ul>
 
+                {/* View all */}
                 <div className="mt-8 flex justify-center">
                     <button
                         type="button"
