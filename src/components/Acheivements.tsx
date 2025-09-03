@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 
 import innovesta from "../assets/achievements/innovesta.png";
 import innovesta2 from "../assets/achievements/innovesta2.png";
+import semester from "../assets/achievements/semester.png";
+import semester2 from "../assets/achievements/semester2.png";
+import ditec from "../assets/achievements/DITEC.png";
+import ditec2 from "../assets/achievements/DITEC2.png";
+import hnd from "../assets/achievements/HND.png";
+import hnd2 from "../assets/achievements/HND2.png";
+
 
 type Achievement = {
     imgs: string[];
@@ -22,16 +29,16 @@ const ACHIEVEMENTS: Achievement[] = [
     },
     {
         imgs: [
-            "src/assets/achievements/semester.png",
-            "src/assets/achievements/semester2.png"
+            semester,
+            semester2
         ],
         alt: "Team on stage",
         caption: "2nd Place - Semester Project",
     },
     {
         imgs: [
-            "src/assets/achievements/DITEC.png",
-            "src/assets/achievements/DITEC2.png"
+            ditec,
+            ditec2
         ],
         alt: "Graduation certificate",
         caption: "DITEC Graduation",
@@ -39,13 +46,12 @@ const ACHIEVEMENTS: Achievement[] = [
 
     {
         imgs: [
-            "src/assets/achievements/HND.png",
-            "src/assets/achievements/HND2.png"
+            hnd,
+            hnd2
         ],
         alt: "Graduation certificate",
         caption: "HND Graduation",
     },
-    // Add more achievements as needed
 ];
 
 // animations
