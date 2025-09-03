@@ -2,6 +2,11 @@
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 
+import carnage from "../assets/projects/carnage.png";
+import booking from "../assets/projects/booking.png";
+import sneakerz from "../assets/projects/sneakerz.png";
+import bookclub from "../assets/projects/BookClub.png";
+
 export type Project = {
     title: string;
     description: string;
@@ -15,27 +20,27 @@ export const PROJECTS: Project[] = [
     {
         title: "Carnage Management System",
         description: "Full-stack app with auth, CRUD, and real-time updates.",
-        image: "src/assets/projects/carnage.png",
+        image: carnage,
         github: "https://github.com/DionFernando/CarnageManagement.git",
     },
     {
         title: "Booking.com",
         description: "A hotel and car booking platform with search, filters, and booking features.",
-        image: "src/assets/projects/booking.png",
+        image: booking,
         github: "https://github.com/DionFernando/Booking.com.git",
     },
     {
         title: "Sneakerz E-commerce",
         description:
             "E-commerce site with product pages, cart, and checkout flow.",
-        image: "src/assets/projects/sneakerz.png",
+        image: sneakerz,
         github: "https://github.com/DionFernando/SneakerZ-EcommerceWebsite.git",
     },
     {
         title: "BookClub Library Management System",
         description:
             "A library management system with user auth, book catalog, and borrowing features.",
-        image: "src/assets/projects/BookClub.png",
+        image: bookclub,
         github: "https://github.com/DionFernando/BookClub-frontend.git",
     },
 ];

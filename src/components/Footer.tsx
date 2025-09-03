@@ -2,9 +2,10 @@
 import { motion } from "framer-motion";
 import { Mail, Instagram, Facebook, Linkedin, Github } from "lucide-react";
 import Logo from "../assets/Logo.png";
+import BG from "../assets/footer/bg.png";
 
 // ✅ Responsive background image
-const BG = "src/assets/footer/bg.png";
+// const BG = "src/assets/footer/bg.png";
 
 const navLeft = [
     { label: "Home", href: "#home" },
