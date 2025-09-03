@@ -3,69 +3,80 @@ import { motion } from "framer-motion";
 import { PROJECTS } from "../components/Projects";
 import { Github } from "lucide-react";
 
+import smartparking from "../assets/projects/smartparking.png"
+import culinaryac from "../assets/projects/culinaryac.png"
+import scrollgame from "../assets/projects/scrollgame.png"
+import chatapp from "../assets/projects/chatapp.png"
+import fittrack from "../assets/projects/fittrack.png"
+import terminalchat from "../assets/projects/terminalchat.png"
+import cashier from "../assets/projects/cashier.png"
+import connect4 from "../assets/projects/connect4.png"
+import logistic from "../assets/projects/logistic.png"
+import knightrider from "../assets/projects/knightrider.png"
+
 const MORE_PROJECTS = [
     {
         title: "Smart Parking System",
         description:
             // used microservices, api gateway,
             "A web application that allows users to find and reserve parking spots in real-time",
-        image: "src/assets/projects/smartparking.png",
+        image: smartparking,
         github: "https://github.com/DionFernando/SmartParking.git",
     },
     {
         title: "The Culinary Academy",
         description:
             "A responsive website for a culinary school, featuring course listings, instructor profiles, and enrollment forms.",
-        image: "src/assets/projects/culinaryac.png",
+        image: culinaryac,
         github: "https://github.com/DionFernando/The-Culinary-Academy.git",
     },
     {
         title: "Scroll Game",
         description:
             "A simple 2D side-scrolling game built with HTML, CSS, and JavaScript, featuring character movement and obstacle avoidance.",
-        image: "src/assets/projects/scrollgame.png",
+        image: scrollgame,
         github: "https://github.com/DionFernando/Scroll-Game.git",
     },
     {
         title: "Chat Application",
         description:
             "A real-time chat application built with React and Firebase, featuring user authentication and group chats.",
-        image: "src/assets/projects/chatapp.png",
+        image: chatapp,
         github: "https://github.com/DionFernando/Chat-App.git",
     },
     {
         title: "Fit Track",
         description:
             "Figma Prototype for a fitness tracking application designed to monitor workouts, nutrition, and progress over time.",
-        image: "src/assets/projects/fittrack.png",
+        image: fittrack,
         github: "https://www.figma.com/design/hJdmblnYiBltveTh00lrTF/Untitled?node-id=0-1&t=L1u19BCZklOBltKg-1",
     },
     {
         title: "Terminal Chat Application",
         description:
             "A command-line chat application using socket programming in Python, enabling real-time communication between multiple users.",
-        image: "src/assets/projects/terminalchat.png",
+        image: terminalchat,
         github: "https://github.com/DionFernando/Terminal-Chat--Socket-Programming.git",
     },
     {
         title: "Cashier Management System",
         description:
             "A desktop application built with Java Swing and MySQL that streamlines sales transactions, inventory management, and reporting for retail businesses.",
-        image: "src/assets/projects/cashier.png",
+        image: cashier,
         github: "https://github.com/DionFernando/Cashier.git",
     },
     {
         title: "Connect 4 Game",
         description:
             "A two-player Connect 4 game built with Java, featuring a graphical interface and win detection logic.",
-        image: "src/assets/projects/connect4.png",
+        image: connect4,
         github: "https://github.com/DionFernando/Cashier.git",
     },
     {
         title: "Logistic Management System",
         description:
             "Figma Prototype for a comprehensive Logistic Management System designed to streamline operations and enhance efficiency.",
-        image: "src/assets/projects/logistic.png",
+        image: logistic,
         github:
             "https://www.figma.com/design/kUWB0CKeCKGplbvXWMNQWg/Logistic-Management-System---Figma--Latest--?node-id=230-80&t=brhGUakwjwozKaVQ-1",
     },
@@ -73,7 +84,7 @@ const MORE_PROJECTS = [
         title: "Knight Rider LED",
         description:
             "HTML CSS and JavaScript project that simulates the iconic Knight Rider LED effect",
-        image: "src/assets/projects/knightrider.png",
+        image: knightrider,
         github: "https://github.com/DionFernando/Kitt_Knight_Rider.git",
     },
 ];
