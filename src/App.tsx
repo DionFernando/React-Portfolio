@@ -1,16 +1,16 @@
 // src/App.tsx
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import SplashScreen from "./components/SplashScreen";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Education from "./components/Education";
-import Achievements from "./components/Acheivements"; // make sure file is spelled correctly
+import Achievements from "./components/Acheivements";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import ProjectsAll from "./pages/ProjectsAll";   // ✅ fixed path
+import ProjectsAll from "./pages/ProjectsAll";
 import YouTube from "./components/YouTube";
 import HireMe from "./components/HireMe.tsx";
 import Footer from "./components/Footer";
@@ -34,20 +34,18 @@ function HomePage() {
 
 export default function App() {
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         const t = setTimeout(() => setLoading(false), 3000);
         return () => clearTimeout(t);
     }, []);
-
     if (loading) return <SplashScreen />;
 
     return (
-        <BrowserRouter>
+        <Router>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/projects" element={<ProjectsAll />} /> {/* ✅ correct import */}
+                <Route path="/projects" element={<ProjectsAll />} />
             </Routes>
-        </BrowserRouter>
+        </Router>
     );
 }

@@ -115,9 +115,6 @@ export default function Projects() {
                     <h2 className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl md:text-5xl">
                         Projects
                     </h2>
-                    <p className="mt-2 max-w-2xl text-xs text-gray-400 sm:text-sm md:text-base">
-                        Selected builds I’m proud of. Explore the full list for more.
-                    </p>
                 </div>
 
                 {/* ✅ grid */}
@@ -136,7 +133,7 @@ export default function Projects() {
                 {/* View all projects → (open in new tab) */}
                 <div className="mt-8 flex justify-center">
                     <a
-                        href="/projects"
+                        href="/projects"       // with HashRouter this becomes "/#/projects" when clicked
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm text-white hover:bg-white/15"
