@@ -4,6 +4,7 @@ import innovesta from "../assets/achievements/innovesta.png";
 import semester from "../assets/achievements/semester.png";
 import ditec from "../assets/achievements/DITEC.png";
 import hnd from "../assets/achievements/HND.png";
+import circleedge from "../assets/achievements/circleedge.jpg";
 
 type Achievement = {
     imgs: string[];
@@ -17,6 +18,11 @@ const ACHIEVEMENTS: Achievement[] = [
         imgs: [innovesta],
         alt: "Receiving award",
         caption: "Innovesta 2024",
+    },
+    {
+        imgs: [circleedge],
+        alt: "Receiving award",
+        caption: "Circle Edge 2025",
     },
     {
         imgs: [semester],
