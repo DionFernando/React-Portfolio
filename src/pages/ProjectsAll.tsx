@@ -1,24 +1,24 @@
 // src/pages/ProjectsAll.tsx
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { PROJECTS } from "../components/Projects";
 import { Github } from "lucide-react";
 
-import smartparking from "../assets/projects/smartparking.png"
-import culinaryac from "../assets/projects/culinaryac.png"
-import scrollgame from "../assets/projects/scrollgame.png"
-import chatapp from "../assets/projects/chatapp.png"
-import fittrack from "../assets/projects/fittrack.png"
-import terminalchat from "../assets/projects/terminalchat.png"
-import cashier from "../assets/projects/cashier.png"
-import connect4 from "../assets/projects/connect4.png"
-import logistic from "../assets/projects/logistic.png"
-import knightrider from "../assets/projects/knightrider.png"
+import smartparking from "../assets/projects/smartparking.png";
+import culinaryac from "../assets/projects/culinaryac.png";
+import scrollgame from "../assets/projects/scrollgame.png";
+import chatapp from "../assets/projects/chatapp.png";
+import fittrack from "../assets/projects/fittrack.png";
+import terminalchat from "../assets/projects/terminalchat.png";
+import cashier from "../assets/projects/cashier.png";
+import connect4 from "../assets/projects/connect4.png";
+import logistic from "../assets/projects/logistic.png";
+import knightrider from "../assets/projects/knightrider.png";
 
 const MORE_PROJECTS = [
     {
         title: "Smart Parking System",
         description:
-            // used microservices, api gateway,
             "A web application that allows users to find and reserve parking spots in real-time",
         image: smartparking,
         github: "https://github.com/DionFernando/SmartParking.git",
@@ -49,14 +49,16 @@ const MORE_PROJECTS = [
         description:
             "Figma Prototype for a fitness tracking application designed to monitor workouts, nutrition, and progress over time.",
         image: fittrack,
-        github: "https://www.figma.com/design/hJdmblnYiBltveTh00lrTF/Untitled?node-id=0-1&t=L1u19BCZklOBltKg-1",
+        github:
+            "https://www.figma.com/design/hJdmblnYiBltveTh00lrTF/Untitled?node-id=0-1&t=L1u19BCZklOBltKg-1",
     },
     {
         title: "Terminal Chat Application",
         description:
             "A command-line chat application using socket programming in Python, enabling real-time communication between multiple users.",
         image: terminalchat,
-        github: "https://github.com/DionFernando/Terminal-Chat--Socket-Programming.git",
+        github:
+            "https://github.com/DionFernando/Terminal-Chat--Socket-Programming.git",
     },
     {
         title: "Cashier Management System",
@@ -92,16 +94,20 @@ const MORE_PROJECTS = [
 export default function ProjectsAll() {
     const ALL = PROJECTS.concat(MORE_PROJECTS);
 
-    return (
-        <main className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-x-clip">
-            <div className="mx-auto w-[95%] max-w-7xl py-16">
-                {/* Back link (top) */}
-                <div className="mt-2 mb-6">
-                    <a href="/" className="text-sm text-gray-400 hover:text-white">
-                        ← Back to Home
-                    </a>
-                </div>
+    // 🔒 Lock background scroll while this overlay is mounted
+    useEffect(() => {
+        const prev = document.documentElement.style.overflow;
+        document.documentElement.style.overflow = "hidden";
+        return () => {
+            document.documentElement.style.overflow = prev;
+        };
+    }, []);
 
+    return (
+        // 👇 Fullscreen fixed overlay with its own scroll
+        <div className="fixed inset-0 z-[100] bg-gradient-to-b from-black to-gray-900 text-white overflow-y-auto overflow-x-clip">
+            <div className="mx-auto w-[95%] max-w-7xl pt-24 pb-16">
+                {/* Heading */}
                 <h1 className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
                     All Projects
                 </h1>
@@ -109,7 +115,7 @@ export default function ProjectsAll() {
                     A longer list of work—repos, experiments, and shipped features.
                 </p>
 
-                {/* ✅ 2 columns on mobile, 1 column on very narrow screens, 3 on lg */}
+                {/* ✅ 2 columns on mobile, 1 on very narrow, 3 on md+ */}
                 <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 max-[360px]:grid-cols-1">
                     {ALL.map((p) => (
                         <motion.article
@@ -119,7 +125,6 @@ export default function ProjectsAll() {
                             transition={{ duration: 0.35 }}
                             className="overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-lg backdrop-blur-md"
                         >
-                            {/* Responsive image aspect for nicer balance */}
                             <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full">
                                 <img
                                     src={p.image}
@@ -149,13 +154,13 @@ export default function ProjectsAll() {
                     ))}
                 </div>
 
-                {/* Back link (bottom) */}
+                {/* Keep your back link as-is */}
                 <div className="mt-10">
                     <a href="/" className="text-sm text-gray-400 hover:text-white">
                         ← Back to Home
                     </a>
                 </div>
             </div>
-        </main>
+        </div>
     );
 }
