@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+import innovesta from "../assets/achievements/innovesta.png";
+import innovesta2 from "../assets/achievements/innovesta2.png";
+
 type Achievement = {
     imgs: string[];
     alt: string;
@@ -11,8 +14,8 @@ type Achievement = {
 const ACHIEVEMENTS: Achievement[] = [
     {
         imgs: [
-            "../assets/achievements/innovesta.png",
-            "../assets/achievements/innovesta2.png"
+            innovesta,
+            innovesta2
         ],
         alt: "Receiving award",
         caption: "Innovesta 2024",
