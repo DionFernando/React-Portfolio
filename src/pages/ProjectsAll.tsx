@@ -12,8 +12,16 @@ import cashier from "../assets/projects/cashier.png";
 import connect4 from "../assets/projects/connect4.png";
 import logistic from "../assets/projects/logistic.png";
 import knightrider from "../assets/projects/knightrider.png";
+import carnage from "../assets/projects/carnage.png";
+import booking from "../assets/projects/booking.png";
+import sneakerz from "../assets/projects/sneakerz.png";
+import bookclub from "../assets/projects/BookClub.png";
 
 const MORE_PROJECTS = [
+    {title: "Carnage Management System", description: "Full-stack app with auth, CRUD, and real-time updates.", image: carnage, github: "https://github.com/DionFernando/CarnageManagement.git",},
+    {title: "Booking.com", description: "A hotel and car booking platform with search, filters, and booking features.", image: booking, github: "https://github.com/DionFernando/Booking.com.git",},
+    {title: "Sneakerz E-commerce", description: "E-commerce site with product pages, cart, and checkout flow.", image: sneakerz, github: "https://github.com/DionFernando/SneakerZ-EcommerceWebsite.git",},
+    {title: "BookClub Library Management System", description: "A library management system with user auth, book catalog, and borrowing features.", image: bookclub, github: "https://github.com/DionFernando/BookClub-frontend.git",},
     { title: "Smart Parking System", description: "A web application that allows users to find and reserve parking spots in real-time", image: smartparking, github: "https://github.com/DionFernando/SmartParking.git" },
     { title: "The Culinary Academy", description: "A responsive website for a culinary school, featuring course listings, instructor profiles, and enrollment forms.", image: culinaryac, github: "https://github.com/DionFernando/The-Culinary-Academy.git" },
     { title: "Scroll Game", description: "A simple 2D side-scrolling game built with HTML, CSS, and JavaScript, featuring character movement and obstacle avoidance.", image: scrollgame, github: "https://github.com/DionFernando/Scroll-Game.git" },
@@ -38,7 +46,6 @@ export default function ProjectsAll() {
                 <h1 className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
                     All Projects
                 </h1>
-                <p className="mt-2 text-gray-400">A longer list of work—repos, experiments, and shipped features.</p>
 
                 <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 max-[360px]:grid-cols-1">
                     {ALL.map((p) => (
