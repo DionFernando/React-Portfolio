@@ -9,8 +9,7 @@ import {
     X,
 } from "lucide-react";
 
-/** ---------- IMAGES (replace with your actual files) ---------- */
-// Big portrait (right column)
+
 import portrait from "../assets/Dion2.png";
 
 // Skills images
@@ -20,11 +19,11 @@ import skillPresenting from "../assets/more/skill-presenting.jpg";
 
 // Designing viewer images (3+ works best)
 import design1 from "../assets/more/design-1.jpg";
-//import design2 from "../assets/more/design-2.jpg";
-//import design3 from "../assets/more/design-3.jpg";
+// import design2 from "../assets/more/design-2.jpg";
+// import design3 from "../assets/more/design-3.jpg";
 import design4 from "../assets/more/design-4.png";
 import design5 from "../assets/more/design-5.png";
-//import design6 from "../assets/more/design-6.png";
+// import design6 from "../assets/more/design-6.png";
 
 // Dionz section image
 import dionzHero from "../assets/more/dionz.jpg";
@@ -106,7 +105,7 @@ export default function MoreAboutMe() {
 
     return (
         <main className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-x-clip">
-        {/* HEADER */}
+            {/* HEADER */}
             <div className="mx-auto w-[95%] max-w-7xl pt-10 pb-6 sm:pt-14 sm:pb-10">
                 <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                     More About Me
@@ -126,15 +125,20 @@ export default function MoreAboutMe() {
 
             {/* TWO-COLUMN HERO: left = long description, right = sticky image */}
             <section className="mx-auto w-[95%] max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start overflow-x-clip">
-            {/* LEFT — narrative */}
+                {/* LEFT — narrative */}
                 <motion.div
                     initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
                     className="lg:col-span-7 space-y-5 sm:space-y-6"
                 >
-                    <div className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md">
+                    {/* Who I Am — animate on mount */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.35 }}
+                        className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md"
+                    >
                         <h2 className="text-xl sm:text-2xl font-semibold text-blue-300">Who I Am</h2>
                         <p className="mt-3 text-sm sm:text-base text-gray-300 leading-relaxed">
                             I love turning ideas into production-ready experiences—clean code, clean UI, and a focus
@@ -147,10 +151,15 @@ export default function MoreAboutMe() {
                             presenting ideas, and documenting decisions. Outside code, I’m into music, content,
                             and visual design—which all feed back into how I approach products.
                         </p>
-                    </div>
+                    </motion.div>
 
-                    {/* SKILLS — show one at a time, image left / text right */}
-                    <div className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md">
+                    {/* SKILLS — animate on mount */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.35, delay: 0.05 }}
+                        className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md"
+                    >
                         <div className="flex items-center justify-between">
                             <h2 className="text-xl sm:text-2xl font-semibold text-blue-300">Skills</h2>
                             <div className="flex items-center gap-2">
@@ -207,10 +216,16 @@ export default function MoreAboutMe() {
                                 </p>
                             </motion.div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* DESIGNING — V-shape viewer */}
-                    <div className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md">
+                    {/* DESIGNING — scroll reveal */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.4 }}
+                        className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md"
+                    >
                         <div className="flex items-center justify-between">
                             <h2 className="text-xl sm:text-2xl font-semibold text-blue-300">Designing</h2>
                             <div className="flex items-center gap-2">
@@ -238,9 +253,8 @@ export default function MoreAboutMe() {
 
                         {/* V-stack viewer */}
                         <div className="relative mt-6 h-[280px] sm:h-[320px] md:h-[360px] overflow-x-clip">
-                        {designingImages.map((src, i) => {
+                            {designingImages.map((src, i) => {
                                 const rel = mod(i - designIndex, designingImages.length); // 0=center, 1=right, 2=left (with 3 items)
-                               // const isCenter = rel === 0;
                                 const isRight = rel === 1;
                                 const isLeft = rel === designingImages.length - 1;
 
@@ -271,10 +285,16 @@ export default function MoreAboutMe() {
                                 );
                             })}
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* DIONZ — side venture */}
-                    <div className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md">
+                    {/* DIONZ — scroll reveal */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.4 }}
+                        className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md"
+                    >
                         <h2 className="text-xl sm:text-2xl font-semibold text-blue-300">Dionz</h2>
                         <div className="mt-4 grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
                             <div className="md:col-span-6">
@@ -300,10 +320,16 @@ export default function MoreAboutMe() {
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* GALLERY */}
-                    <div className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md">
+                    {/* GALLERY — scroll reveal */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.4 }}
+                        className="rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6 md:p-8 shadow-lg backdrop-blur-md"
+                    >
                         <h2 className="text-xl sm:text-2xl font-semibold text-blue-300">Gallery</h2>
                         <p className="mt-2 text-sm sm:text-base text-gray-300">
                             A few moments and portraits. Click any image to view.
@@ -324,7 +350,7 @@ export default function MoreAboutMe() {
                                 </button>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                     <div className="pt-4 pb-12">
                         <Link to="/" className="text-sm text-gray-400 hover:text-white">
@@ -333,11 +359,10 @@ export default function MoreAboutMe() {
                     </div>
                 </motion.div>
 
-                {/* RIGHT — big sticky portrait */}
+                {/* RIGHT — big sticky portrait (animate on mount) */}
                 <motion.aside
                     initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.45 }}
                     className="lg:col-span-5 lg:sticky lg:top-20 overflow-x-clip"
                 >
