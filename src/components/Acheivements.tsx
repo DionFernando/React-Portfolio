@@ -11,8 +11,8 @@ type Achievement = {
 const ACHIEVEMENTS: Achievement[] = [
     {
         imgs: [
-            "src/assets/achievements/innovesta.png",
-            "src/assets/achievements/innovesta2.png"
+            "../assets/achievements/innovesta.png",
+            "../assets/achievements/innovesta2.png"
         ],
         alt: "Receiving award",
         caption: "Innovesta 2024",
